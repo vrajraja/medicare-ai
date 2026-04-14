@@ -318,12 +318,12 @@ reader.readAsDataURL(image);
 controllerRef.current=new AbortController();
 
 try{
-
-const response=await fetch("http://localhost:8000/ask",{
+console.log("KEY:", import.meta.env.VITE_API_KEY);
+const response=await fetch("http://127.0.0.1:8000/ask",{
 method:"POST",
 headers:{
   "Content-Type":"application/json",
-  "x-api-key": import.meta.env.VITE_API_KEY
+  "x-api-key": "123"
 },
 signal:controllerRef.current.signal,
 body:JSON.stringify({

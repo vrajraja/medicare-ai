@@ -52,7 +52,8 @@ async def ask_question(
     # ✅ Basic security
     if x_api_key != API_KEY:
         raise HTTPException(status_code=403, detail="Unauthorized")
-
+    print("EXPECTED API_KEY:", API_KEY)
+    print("RECEIVED x_api_key:", x_api_key)
     try:
 
         if not data.message.strip() and not data.image:
