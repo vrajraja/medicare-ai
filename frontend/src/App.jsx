@@ -319,7 +319,7 @@ controllerRef.current=new AbortController();
 
 try{
 console.log("KEY:", import.meta.env.VITE_API_KEY);
-const response=await fetch("https://medicare-ai-2pa2.onrender.com",{
+const response=await fetch("https://medicare-ai-2pa2.onrender.com/ask",{
 method:"POST",
 headers:{
   "Content-Type":"application/json",
