@@ -24,6 +24,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "https://vercel.com/vrajrajas-projects/medicare-ai-jgzz/E5rNpHmziLSJ8QjFr31K6mLrgG9g"
     ],
     allow_credentials=True,
     allow_methods=["*"],
