@@ -625,8 +625,11 @@ onChange={(e)=>setMessage(e.target.value)}
 onKeyDown={(e)=>e.key==="Enter" && sendMessage()}
 />
 
-<button className="send-btn"
-onClick={()=> loading ? stopThinking() : sendMessage()}>
+<button
+  type="button"
+  className="send-btn"
+  onClick={() => loading ? stopThinking() : sendMessage()}
+>
 {loading ? "Stop":"Send"}
 </button>
 
