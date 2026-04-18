@@ -10,6 +10,7 @@ from google import genai
 load_dotenv()
 
 GEMINI_KEY = os.getenv("GEMINI_API_KEY")
+
 API_KEY = os.getenv("API_KEY")
 
 if not GEMINI_KEY:
@@ -25,6 +26,7 @@ app.add_middleware(
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "https://medicare-ai-jgzz.vercel.app"
+        "https://*.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -144,6 +146,8 @@ User message:
             model="gemini-2.5-flash",
             contents=contents
         )
+        
+        
 
         if hasattr(response, "text") and response.text:
             raw_text = response.text
