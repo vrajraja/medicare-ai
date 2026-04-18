@@ -323,7 +323,7 @@ const response=await fetch("https://medicare-ai-2pa2.onrender.com/ask",{
 method:"POST",
 headers:{
   "Content-Type":"application/json",
-  "x-api-key": "123"
+  "x-api-key": import.meta.env.VITE_API_KEY
 },
 signal:controllerRef.current.signal,
 body:JSON.stringify({
@@ -336,6 +336,7 @@ profile: profile
 
 const data=await response.json();
 
+
 const botReply = data.reply || "Error occurred.";
 const title = data.title || "New Chat";
 
@@ -345,8 +346,14 @@ if (chatTitle === "New Chat") {
 
 /* save chat */
 setChatHistory(prev => {
-const newChat = { title, messages: [...updated, {type:"bot",text:botReply}] };
-return [newChat, ...prev];
+  const updatedChat = {
+    title: chatTitle === "New Chat" ? title : chatTitle,
+    messages: [...updated, { type: "bot", text: botReply }]
+  };
+
+  const others = prev.filter(chat => chat.title !== chatTitle);
+
+  return [updatedChat, ...others];
 });
 
 /* streaming */
