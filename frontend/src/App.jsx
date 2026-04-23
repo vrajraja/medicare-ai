@@ -334,9 +334,7 @@ profile: profile
 })
 });
 
-const raw = await response.text();
-console.log(raw);
-const data = JSON.parse(raw);
+const data=await response.json();
 
 
 const botReply = data.reply || "Error occurred.";
