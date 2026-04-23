@@ -334,7 +334,9 @@ profile: profile
 })
 });
 
-const data=await response.json();
+const raw = await response.text();
+console.log(raw);
+const data = JSON.parse(raw);
 
 
 const botReply = data.reply || "Error occurred.";
@@ -625,10 +627,8 @@ onChange={(e)=>setMessage(e.target.value)}
 onKeyDown={(e)=>e.key==="Enter" && sendMessage()}
 />
 
-<button
-  type="button"
-  className="send-btn"
-  onClick={() => loading ? stopThinking() : sendMessage()}
+<button className="send-btn"
+onClick={()=> loading ? stopThinking() : sendMessage()}
 >
 {loading ? "Stop":"Send"}
 </button>
